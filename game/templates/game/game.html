@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>I am the Home Template</h1>
+    <h1>I am the game template !!</h1>
+    {% for flag in flags %}
+        <p>{{ flags.0.flag }}</p>
+        <p>{{ flags.0.image }}</p>
+    {% endfor %}
 </body>
 </html>
