@@ -3,8 +3,8 @@
 {% block content %}
 
     {% for flag in flags %}
-        <p>{{ flags.0.flag }}</p>
-        <p>{{ flags.0.image }}</p>
+        <p>{{ flag.flag }}</p>
+        <img src="{{ flag.image.url }}" alt="">
     {% endfor %}
 
 {% endblock content %}
