@@ -4,15 +4,18 @@
 
     {% for flag in flags %}
         <div>
+            <p class="m-0">{{ flag.id }}:</p>
             <p class="m-0">{{ flag.flag }} - </p>
             <p class="m-0 difficulty">{{ flag.difficulty }}</p>
+            <img src="{{ flag.image.url }}" alt="">
+
+            
         </div>
-        
-        <!-- <img src="{{ flag.image.url }}" alt=""> -->
     {% endfor %}
 
-    <button id="Increase">Increase Difficulty</button>
-    <button id="Decrease">Decrease Difficulty</button>
+    <input type="number" name="" id="index" value=0>
+    <button id="Increase">Increase</button>
+    <button id="Decrease">Decrease</button>
 
 {% endblock content %}
 
@@ -20,21 +23,28 @@
 
     <script type="text/javascript">
 
-        const Increase = document.getElementById('Increase');
-        const Decrease = document.getElementById('Decrease');
-        const difficulty = document.getElementsByClassName('difficulty');
+        let Increase = document.getElementById('Increase');
+        let Decrease = document.getElementById('Decrease');
+        let difficulty = document.getElementsByClassName('difficulty');
+        let index = document.getElementById('index').value;
+
+        document.getElementById("index").addEventListener('change', doThing);
+
+        function doThing(){
+            index = document.getElementById('index').value;
+        }
 
         Increase.addEventListener('click', function onClick(event) {
 
-            difficulty[0].innerHTML = difficulty[0].innerHTML * 1.1
-            if (difficulty[0].innerHTML > 1) {
-                difficulty[0].innerHTML = 1
+            difficulty[index].innerHTML = difficulty[index].innerHTML * 1.1
+            if (difficulty[index].innerHTML > 1) {
+                difficulty[index].innerHTML = 1
             }
         });
 
         Decrease.addEventListener('click', function onClick(event) {
 
-            difficulty[0].innerHTML = difficulty[0].innerHTML * 0.9
+            difficulty[index].innerHTML = difficulty[index].innerHTML * 0.9
             
         });
 
