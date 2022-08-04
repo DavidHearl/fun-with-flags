@@ -3,8 +3,41 @@
 {% block content %}
 
     {% for flag in flags %}
-        <p>{{ flag.flag }}</p>
-        <img src="{{ flag.image.url }}" alt="">
+        <div>
+            <p class="m-0">{{ flag.flag }} - </p>
+            <p class="m-0 difficulty">{{ flag.difficulty }}</p>
+        </div>
+        
+        <!-- <img src="{{ flag.image.url }}" alt=""> -->
     {% endfor %}
 
+    <button id="Increase">Increase Difficulty</button>
+    <button id="Decrease">Decrease Difficulty</button>
+
 {% endblock content %}
+
+{% block postloadjs %}
+
+    <script type="text/javascript">
+
+        const Increase = document.getElementById('Increase');
+        const Decrease = document.getElementById('Decrease');
+        const difficulty = document.getElementsByClassName('difficulty');
+
+        Increase.addEventListener('click', function onClick(event) {
+
+            difficulty[0].innerHTML = difficulty[0].innerHTML * 1.1
+            if (difficulty[0].innerHTML > 1) {
+                difficulty[0].innerHTML = 1
+            }
+        });
+
+        Decrease.addEventListener('click', function onClick(event) {
+
+            difficulty[0].innerHTML = difficulty[0].innerHTML * 0.9
+            
+        });
+
+    </script>
+
+{% endblock %}
