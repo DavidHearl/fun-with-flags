@@ -9,9 +9,13 @@
             <p class="m-0 difficulty">{{ flag.difficulty }}</p>
             <img src="{{ flag.image.url }}" alt="">
 
-            
+            {% if flag.difficulty < 0.5 %}
+                <p>Im Special !</p>
+            {% endif %}
         </div>
     {% endfor %}
+
+    
 
     <input type="number" name="" id="index" value=0>
     <button id="Increase">Increase</button>
@@ -36,7 +40,7 @@
 
         Increase.addEventListener('click', function onClick(event) {
 
-            difficulty[index].innerHTML = difficulty[index].innerHTML * 1.1
+            difficulty[index].innerHTML = (difficulty[index].innerHTML * 1.01).toFixed(5)
             if (difficulty[index].innerHTML > 1) {
                 difficulty[index].innerHTML = 1
             }
@@ -44,7 +48,7 @@
 
         Decrease.addEventListener('click', function onClick(event) {
 
-            difficulty[index].innerHTML = difficulty[index].innerHTML * 0.9
+            difficulty[index].innerHTML = (difficulty[index].innerHTML * 0.99).toFixed(5)
             
         });
 

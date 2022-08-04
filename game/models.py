@@ -7,5 +7,5 @@ class Flag(models.Model):
     image = models.ImageField(null=True, blank=True)
     fact = models.TextField(blank=True, null=True)
     creation_date = models.DateField(blank=True, null=True)
-    difficulty = models.DecimalField(max_digits=4, decimal_places=3, null=True, blank=True)
+    difficulty = models.DecimalField(max_digits=6, decimal_places=5, null=True, blank=True)
 
