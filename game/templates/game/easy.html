@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <h1>Something noticable</h1>
+
+    {% for flag in flags %}
+        <div>
+            <p class="m-0">{{ flag.id }}:</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
+
+{% block postloadjs %}
+
+{% endblock %}
