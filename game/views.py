@@ -5,20 +5,28 @@ from .models import Flag
 def game(request):
 
     flags = Flag.objects.all()
-
-    context = {
-        'flags': flags
-    }
-
-    return render(request, 'game/game.html', context)
+    return render(request, 'game/game.html', {'flags': flags})
 
 
 def easy(request):
 
     flags = Flag.objects.all()
+    return render(request, 'game/easy.html', {'flags': flags})
 
-    context = {
-        'flags': flags
-    }
 
-    return render(request, 'game/easy.html', context)
+def medium(request):
+
+    flags = Flag.objects.all()
+    return render(request, 'game/medium.html', {'flags': flags})
+
+
+def hard(request):
+
+    flags = Flag.objects.all()
+    return render(request, 'game/hard.html', {'flags': flags})
+
+
+def extreme(request):
+
+    flags = Flag.objects.all()
+    return render(request, 'game/extreme.html', {'flags': flags})
